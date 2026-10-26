@@ -1,0 +1,43 @@
+id: TASK-NET-SECOND-PASS
+status: proposed
+role: researcher
+model_tier: strong
+scope:
+  allowed_paths:
+  - work/research/TASK-NET-RESEARCH-MAC
+  - work/research/TASK-NET-RESEARCH-ETHERNET
+  - work/research/TASK-NET-RESEARCH-ARP
+  - work/research/TASK-NET-RESEARCH-BROADCAST
+  - work/research/TASK-NET-RESEARCH-IPV4
+  - work/research/TASK-NET-RESEARCH-DIRECT
+  - work/research/TASK-NET-RESEARCH-STATIC
+  - work/research/TASK-NET-RESEARCH-DEFAULT
+  - work/research/TASK-NET-SECOND-PASS
+  read_ids:
+  - NET.IPV4.ADDRESS
+  - NET.IPV4.MASK
+  - NET.IPV4.CIDR
+goal: 'Провести второй исследовательский проход: независимо проверить и исправить
+  шесть черновиков первого прогона, завершить static/default и передать согласованный
+  пакет на независимое ревью.'
+acceptance:
+- Прочитать brief.md и REVIEW.md этого заказа; выполнить все восемь тематических brief.md,
+  работая последовательно небольшими порциями.
+- Сохранить проверенные результаты первого прогона; каждое замечание REVIEW.md закрыть
+  доказательством исправления либо обоснованным несогласием. Первое ревью не является
+  безошибочным источником.
+- По каждой теме представить sources.yaml, findings.md, proposals.md в разрешённом
+  каталоге. Исследовательские материалы остаются draft. Не менять knowledge/, assessments/,
+  contracts/, tools/, исходные заказы или handoffs первого прогона.
+- Явно разобрать все sources.yaml через yaml.safe_load, проверить корневой список,
+  обязательные поля, уникальность source IDs внутри темы и разрешимость ссылок из
+  claims; python tools/validate.py не покрывает эти проверки.
+- По каждому из 2–4 outcomes на тему дать соответствующий сценарию ответ и обоснование.
+  Неподтверждённый ответ не считать готовым; вынести его в отдельный blocked-раздел
+  с планом получения доказательств.
+- Выполнить python tools/validate.py и git diff --check; в отчёт включить точные команды,
+  реальные результаты и остаточные ограничения.
+- Подготовить work/research/TASK-NET-SECOND-PASS/report.md и work/handoffs/TASK-NET-SECOND-PASS/researcher.yaml
+  по contracts/handoff.schema.json. Следующая роль machine_reviewer; исполнитель исправлений
+  не утверждает собственный результат.
+next_role: machine_reviewer
