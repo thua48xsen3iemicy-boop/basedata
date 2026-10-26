@@ -25,7 +25,7 @@ Base `58ed09a`; branch `research/network-foundations-second-pass`; next role `ma
 | IPv4 | Existing /31 exception and address roles preserved; metadata direction corrected. | IANA registry relation no longer misrepresented as RFC update; full current registry audit outstanding. |
 | DIRECT | Next hop vs destination and Linux-specific connected/local behavior preserved. | RFC relation direction corrected; exact OS release for Linux pages remains unspecified. |
 | STATIC | RFC 1812 §§5.2.4.2–3 and RFC 1122 §3.3.1 establish installed-route selection and two-subnet example. | New files; platform installation, interface-only and recursion blocked. |
-| DEFAULT | RFC 4632 §3.1 explicitly labels `0.0.0.0/0`; RFC 1812 §5.2.4.2 ranks it after matching specific prefixes. | New files; platform command/preference behavior blocked. |
+| DEFAULT | RFC 4632 §3.1 explicitly labels `0.0.0.0/0`; RFC 1812 §5.2.4.3 ranks it after matching specific prefixes. | New files; platform command/preference behavior blocked. |
 
 ## Outcome → scenario → answer → evidence
 
@@ -42,12 +42,12 @@ Base `58ed09a`; branch `research/network-foundations-second-pass`; next role `ma
 | Broadcast DOMAIN.01 / IPv4 BROADCAST.01/.02 | H1 broadcast through bridge to H2: blocked pending IEEE 802.1Q; limited `255.255.255.255` stays on connected network; default router blocks network-prefix-directed broadcast. | RFC919 §§4,6; RFC1122 §3.3.6; RFC2644 §3; IEEE 802.1Q blocked. |
 | IPv4 existing A/B and candidate C/D | 32-bit dotted IPv4 value; `/26` means 26 prefix bits; `192.0.2.70` belongs to `192.0.2.64/26`; both `198.51.100.10/31` endpoint addresses usable on p2p, neither directed broadcast. | RFC791 §3.1; RFC4632 §3.1; RFC3021 §§2–3. |
 | DIRECT .01/.02/.03/.04 | On-link destination `192.0.2.77` uses eth0 and self `192.0.2.10` is local; ARP resolves immediate target; Linux `noprefixroute` is platform-scoped. | RFC1122 §3.3.1; RFC1812 §5.2.4; RFC826 Packet Generation; iproute2 manuals. |
-| STATIC .01 | Connected `/24` beats static `/16` for `192.0.2.77`. | RFC1812 §5.2.4.2. |
+| STATIC .01 | Connected `/24` beats static `/16` for `192.0.2.77`. | RFC1812 §5.2.4.3. |
 | STATIC .02 | A→R→B needs B's route back to A and router forwarding. | RFC1122 §3.3.1; RFC1812 §§5.2.1.2,5.2.4. |
 | STATIC .03 | Off-link gateway recursion/installation result blocked. | Named OS release and official manual needed. |
 | DEFAULT .01 | `0.0.0.0/0` prefix, `192.0.2.1` next hop, neither is local host address. | RFC4632 §3.1; RFC1812 §5.2.4. |
-| DEFAULT .02 | Connected `/24`, static `/24`, then `/0`; ARP targets final on-link IP or chosen gateway. | RFC1812 §5.2.4.2; RFC826 Packet Generation. |
-| DEFAULT .03 | No match means no next hop; default alone does not establish reply route. | RFC1812 §5.2.4.2; RFC1122 §3.3.1. |
+| DEFAULT .02 | Connected `/24`, static `/24`, then `/0`; ARP targets final on-link IP or chosen gateway. | RFC1812 §5.2.4.3; RFC826 Packet Generation. |
+| DEFAULT .03 | No match means no next hop; default alone does not establish reply route. | RFC1812 §5.2.4.3; RFC1122 §3.3.1. |
 
 Existing first-pass keyed scenarios remain in their proposals. Their historical source-access statements are not silently updated. The matrix summarizes their answers; an independent reviewer must inspect each complete prompt and scope before use.
 
@@ -62,3 +62,7 @@ Existing first-pass keyed scenarios remain in their proposals. Their historical 
 ## Checks and residual limits
 
 Commands run in this branch: `python tools/validate.py` → `PASS: 3 units, 4 outcomes, 1 questions, 10 work orders; structural references and hours valid`; `git diff --check` → exit 0; Python `yaml.safe_load` over all eight `sources.yaml` → eight root lists, mandatory fields present, unique IDs. Text scan of findings IDs found references to RFC1812 in BROADCAST only as context through RFC2644's update, not as independent evidence. Source URL, section and claim reasoning was selectively checked via RFC Editor web access; this is not a full factual audit. Direct `curl` requests to RFC Editor returned `CONNECT tunnel failed, response 403`; web retrieval worked. Full IEEE 802.3/802.1Q normative texts were not retrieved. Exact amended IEEE clauses, Linux release-specific behavior, and exhaustive RFC update effects remain for reviewer/expert. All output is draft.
+
+## Follow-up: precise RFC references
+
+Basic Match, Longest Match and the empty candidate rule are in RFC 1812 §5.2.4.3, Next Hop Address; these references have been corrected in STATIC, DEFAULT and this report. §5.2.4.2 remains listed for Local/Remote Decision. The earlier checks did not catch this error. Platform-specific documentation and IEEE evidence require further work; the remaining blocked statements above are unchanged.
