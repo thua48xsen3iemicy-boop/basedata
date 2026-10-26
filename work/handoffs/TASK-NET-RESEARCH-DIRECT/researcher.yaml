@@ -1,0 +1,37 @@
+task_id: TASK-NET-RESEARCH-DIRECT
+role: researcher
+branch: research/network-foundations-direct
+changed_paths:
+  - work/research/TASK-NET-RESEARCH-DIRECT/sources.yaml
+  - work/research/TASK-NET-RESEARCH-DIRECT/findings.md
+  - work/research/TASK-NET-RESEARCH-DIRECT/proposals.md
+inputs:
+  - a2976ebf442f2b7255e66bf22294afc8ce00ec75
+  - work/orders/TASK-NET-RESEARCH-DIRECT/PROMPT.md
+  - work/orders/TASK-NET-RESEARCH-DIRECT/order.yaml
+  - work/orders/TASK-NET-RESEARCH-DIRECT/brief.md
+  - RFC 1122, RFC 1812, RFC 826 RFC Editor primary text and metadata
+  - iproute2 ip-address(8) and ip-route(8) upstream man pages
+outputs:
+  - work/research/TASK-NET-RESEARCH-DIRECT/sources.yaml
+  - work/research/TASK-NET-RESEARCH-DIRECT/findings.md
+  - work/research/TASK-NET-RESEARCH-DIRECT/proposals.md
+claims_with_evidence:
+  - claim: "IPv4 host selects direct delivery by comparing destination and local interface prefixes; otherwise it uses a gateway."
+    source_ids: [RFC1122]
+  - claim: "Router decides adjacency using interface addresses/prefixes and obtains link-layer address after route and interface selection."
+    source_ids: [RFC1812]
+  - claim: "Ethernet ARP resolves the routing-selected next-hop protocol address, and missing mapping does not guarantee successful delivery."
+    source_ids: [RFC826, RFC1812]
+  - claim: "Linux iproute2 documents automatic prefix route behavior with a noprefixroute exception and distinguishes local route from direct unicast."
+    source_ids: [LINUX_IP_ADDRESS_MAN, LINUX_IP_ROUTE_MAN]
+checks_run:
+  - "Read all assigned order files, repo/domain instructions, contracts, batch brief, and requested IPv4 unit files."
+  - "Opened primary RFC text and RFC Editor metadata through web search; checked Updates/Obsoletes and scope of listed updates."
+  - "python tools/validate.py: pending"
+open_questions:
+  - "No Windows or BSD primary OS documentation was consulted; cross-platform comparison beyond Linux/iproute2 is unresolved."
+  - "The iproute2 manuals do not identify an exact tagged release; behavior was verified in upstream rendered docs, not pinned package builds."
+  - "Route selection with multiple matching prefixes, policy routing, overlapping subnets, and source-address selection is outside this bounded study."
+  - "ARP response/failure depends on link and implementation conditions; RFC 826 gives base Ethernet procedure, not universal timing/retry policy."
+next_role: machine_reviewer

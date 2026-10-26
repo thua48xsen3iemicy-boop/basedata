@@ -1,0 +1,31 @@
+# Findings: непосредственно подключённая доставка IPv4
+
+Все источники открыты 2026-10-26. RFC — нормативные спецификации; Linux manuals — документация конкретного интерфейса управления Linux/iproute2. «Маршрут существует» означает, что lookup выбрал применимый путь; это само по себе не доказывает доступность соседа на канальном уровне.
+
+## Основные разграничения
+
+- **On-link / connected network** — сеть, которую хост считает непосредственно достижимой через свой интерфейс и маску; RFC 1122 говорит о результате алгоритма local/remote, а не о конкретном объекте записи ОС. **Connected route** — распространённое имя для пути к префиксу интерфейса. RFC не требует именно такого имени, структуры таблицы или единственного механизма её заполнения.
+- При выборе прямой доставки IP next hop — сам IP назначения. Для удалённого назначения next hop — адрес gateway. В обоих случаях route lookup определяет интерфейс; разрешение link-layer адреса — следующий отдельный шаг.
+- **Local route / local delivery** — пакет адресован самому узлу и обрабатывается локально; это не синоним connected route. Linux `ip-route(8)` явно описывает `local` как назначение узлу с loopback-доставкой, а direct unicast — отдельно.
+- «ARP-адрес интерфейса» — неточное выражение. Для Ethernet ARP запрашивает link-layer соответствие IP next hop; при on-link доставке это IP конечного адресата, при gateway-маршруте — IP шлюза. Выбор исходного IP в ARP/исходном пакете может зависеть от платформы и конфигурации; RFC 826 не задаёт универсальную политику выбора source IP у многосетевого хоста.
+
+## Утверждения
+
+| Claim | Формулировка | Доказательство | Область / исключения | Состояние |
+|---|---|---|---|---|
+| D1 | RFC 1122 требует от IP-хоста выбирать next hop: адресат напрямую при совпадении адреса назначения и адреса источника по маске локального адреса; иначе использовать gateway на подключённой сети. | `RFC1122` §3.3.1 и §3.3.1.1(a–c): per-local-address mask; совпавшие биты означают connected network/direct transmission, несовпадение — доступ только через gateway. | Конечные IPv4-хосты, включая multihomed с маской, относящейся к локальному IP. Требование к поведению, не к внутреннему формату FIB. | supported |
+| D2 | Маршрутизатор определяет непосредственную достижимость по адресу соседа на unnumbered interface либо совпадению префикса с адресом интерфейса; иначе направляет через другой router/next hop по таблице маршрутизации. | `RFC1812` §5.2.4.2(1–3), §5.2.4.3; выбор интерфейса и next hop раскрывается также в §5.2.1.2(5). | Forwarding router. RFC 1812 §5.2.4.2 предупреждает о наложенных IP-сетях на одном link и допускает влияние policy; не сводить все архитектуры к одной маске. | supported |
+| D3 | Direct delivery не означает local delivery: on-link IP-адресат становится next hop; адрес шлюза становится next hop только при удалённом направлении. | `RFC1122` §3.3.1; `RFC1812` §5.2.4 definitions and §5.2.4.3; для отдельной семантики локального типа маршрута — `LINUX_IP_ROUTE_MAN` §DESCRIPTION / Route types. | Термины RFC и Linux различаются: RFC 1122 описывает решение хоста, RFC 1812 — маршрутизатор; Linux `local` — отдельный тип route. | supported |
+| D4 | После route decision система определяет link-layer адрес next hop на выбранном интерфейсе. При Ethernet ARP разрешает пару протокол/target-IP на исходно выбранном routing интерфейсе; отсутствие mapping может привести к отбрасыванию/ожиданию повтора, поэтому наличие route не гарантирует доставку. | `RFC1812` §5.2.1.2(5), (10–11): determine next-hop and interface, then link-layer address. `RFC826` Packet Generation: routing picks next-hop protocol address and hardware/link, ARP resolves pair; if absent, module may report drop and issue request. | ARP доказательство ограничено Ethernet; RFC 826 допускает реализационные детали. Физическая достижимость, ARP-фильтрация, таймауты и состояние соседа — вне базовой гарантии route lookup. | supported |
+| D5 | Linux iproute2 документирует автоматическое создание prefix route при назначении адреса и `noprefixroute` для подавления/удаления этой автоматически связанной prefix route; это поведение Linux, не нормативное требование RFC. | `LINUX_IP_ADDRESS_MAN` DESCRIPTION / `ip address add` / `noprefixroute`; для классификации записи — `LINUX_IP_ROUTE_MAN` DESCRIPTION / scope и protocol. | Документация не называет tagged release; зафиксирована upstream-manpage snapshot, дата последнего указанного коммита 2026-07-28. Не обобщать на Windows/BSD/все Linux-дистрибутивы. | supported, version caveat |
+| D6 | Linux различает `local` delivery, direct unicast route и gatewayed unicast, в том числе через route type и scope; «local route = connected route» — неверное обобщение. | `LINUX_IP_ROUTE_MAN` DESCRIPTION / Route types и scope: local доставляет адресованные хосту пакеты локально; direct unicast defaults to scope link, local to host. | Лексика конкретно iproute2; другие ОС могут показывать разные типы и термины. | supported |
+
+## Терминологические/платформенные оговорки
+
+1. В RFC 1122 для host говорится «destination is on a connected network» и «sent directly»; RFC 1812 задаёт router-термин «directly accessible/adjacent» и локально/удалённый алгоритм. Не утверждать, что `direct route` — единый RFC-термин с одинаковой семантикой на всех платформах.
+2. Linux `ip route` использует `local` как специальный маршрут к локальному адресу. Понятия connected prefix route (для выхода к соседям) и local host route (для доставки собственному адресу) надо преподавать отдельно.
+3. Подтверждено только Linux/iproute2 документацией. Поведение Windows/BSD, менеджеров сети и конкретных версий дистрибутивов не проверено; сравнение ОС остаётся частичным.
+
+## RFC metadata
+
+RFC 1122 — Internet Standard STD 3, обновлён множеством RFC по отдельным темам, но не заменён целиком. RFC 1812 — Standards Track / RFC Editor Proposed Standard; заменил RFC 1716 и RFC 1009, обновлён RFC 2644 и 6633. Для исследуемых секций эти обновления не объявлены изменяющими текст local/remote decision; полный анализ затрагиваемых побочных тем не проводился. RFC 826 — Internet Standard STD 37, обновлён RFC 5227 и 5494; его применение здесь ограничено базовым Ethernet ARP. Метаданные проверены на страницах RFC Editor.
