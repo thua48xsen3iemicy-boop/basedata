@@ -1,0 +1,19 @@
+name: Validate repository contracts
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  schema-and-references:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python tools/validate.py
+      - run: python tools/coverage.py  # informational; missing items are expected in starter
+      - run: python -m unittest discover -s tests -v

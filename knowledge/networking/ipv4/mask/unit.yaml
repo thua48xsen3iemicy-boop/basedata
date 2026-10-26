@@ -1,0 +1,14 @@
+id: NET.IPV4.MASK
+title: "Маска подсети IPv4"
+domain: networking
+classification: fundamental
+status: draft
+revision: 1
+prerequisites: [NET.IPV4.ADDRESS]
+outcomes:
+  - id: LO.NET.IPV4.MASK.01
+    statement: "Определять сетевую часть IPv4-адреса с помощью маски"
+    level: apply
+content_file: canonical.md
+misconceptions_file: misconceptions.yaml
+sources_file: sources.yaml

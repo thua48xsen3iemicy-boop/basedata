@@ -1,0 +1,14 @@
+id: NET.IPV4.ADDRESS
+title: "Структура IPv4-адреса"
+domain: networking
+classification: fundamental
+status: draft
+revision: 1
+prerequisites: []
+outcomes:
+  - id: LO.NET.IPV4.ADDRESS.01
+    statement: "Определять число бит и байтов в IPv4-адресе"
+    level: know
+content_file: canonical.md
+misconceptions_file: misconceptions.yaml
+sources_file: sources.yaml

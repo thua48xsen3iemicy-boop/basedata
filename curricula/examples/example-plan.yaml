@@ -1,0 +1,18 @@
+id: PLAN.DEMO.NETWORK.001
+status: draft
+standard_ref: DEMO-NON-NORMATIVE
+title: "Демо-план: основы IPv4"
+hours_total: 12
+modules:
+  - id: DEMO-01
+    title: "Адрес IPv4"
+    hours: 4
+    outcome_ids: [LO.NET.IPV4.ADDRESS.01]
+  - id: DEMO-02
+    title: "Маска и сетевые границы"
+    hours: 4
+    outcome_ids: [LO.NET.IPV4.MASK.01]
+  - id: DEMO-03
+    title: "CIDR"
+    hours: 4
+    outcome_ids: [LO.NET.IPV4.CIDR.01, LO.NET.IPV4.CIDR.02]

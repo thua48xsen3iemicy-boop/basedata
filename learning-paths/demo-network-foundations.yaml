@@ -1,0 +1,12 @@
+id: PATH.DEMO.NETWORK.001
+title: "Пример образовательного маршрута IPv4"
+status: draft
+unit_ids:
+  - NET.IPV4.ADDRESS
+  - NET.IPV4.MASK
+  - NET.IPV4.CIDR
+required_outcome_ids:
+  - LO.NET.IPV4.ADDRESS.01
+  - LO.NET.IPV4.MASK.01
+  - LO.NET.IPV4.CIDR.01
+  - LO.NET.IPV4.CIDR.02

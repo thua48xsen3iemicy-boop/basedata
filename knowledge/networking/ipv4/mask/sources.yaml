@@ -1,0 +1,5 @@
+- id: RFC4632
+  url: https://www.rfc-editor.org/rfc/rfc4632
+  kind: primary_specification
+  applicability: "CIDR prefix and routing architecture"
+  reviewed: false
