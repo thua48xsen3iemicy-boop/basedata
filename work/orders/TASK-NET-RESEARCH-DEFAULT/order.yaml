@@ -1,0 +1,33 @@
+id: TASK-NET-RESEARCH-DEFAULT
+status: proposed
+role: researcher
+model_tier: small
+scope:
+  allowed_paths:
+  - work/research/TASK-NET-RESEARCH-DEFAULT
+  read_ids:
+  - NET.IPV4.ADDRESS
+  - NET.IPV4.MASK
+  - NET.IPV4.CIDR
+goal: Исследовать основные принципы и правила темы «Маршрут по умолчанию» по первичным
+  источникам и подготовить доказуемые предложения для базы знаний.
+acceptance:
+- Прочитать work/batches/network-foundations/README.md и brief.md своего заказа; соблюдать
+  описанный формат результатов.
+- Для каждого основного утверждения дать source_id, точный раздел/таблицу, URL, версию,
+  дату доступа и область применимости; проверить Updates/Obsoletes и статус RFC. Стартовые
+  источники не считаются проверенными доказательствами.
+- Подготовить sources.yaml, findings.md и proposals.md только в разрешённом каталоге;
+  затем work/handoffs/<TASK-ID>/researcher.yaml по contracts/handoff.schema.json.
+- Предложить 2–4 измеримых результата обучения и по одному проверочному сценарию с
+  ответом и обоснованием на каждый; новые ID только кандидаты, не зарегистрированные
+  сущности.
+- Все обязательные вопросы brief.md покрыты доказательствами либо явно отмечены unresolved
+  с причиной; недоступный первоисточник не пересказывать по памяти как проверенный.
+- Не изменять knowledge/, assessments/, общие схемы или чужие заказы. Не исследовать
+  динамическую маршрутизацию, IPv6, NAT, сложные VLAN/STP и vendor-конфигурации вне
+  минимально необходимой оговорки.
+- Запустить python tools/validate.py; в handoff записать фактический результат, ограничения
+  и открытые вопросы. Все результаты исследования — draft; следующий этап — независимое
+  machine_reviewer ревью.
+next_role: machine_reviewer
