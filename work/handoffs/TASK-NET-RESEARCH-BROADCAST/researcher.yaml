@@ -1,0 +1,41 @@
+task_id: TASK-NET-RESEARCH-BROADCAST
+role: researcher
+branch: research/network-foundations-broadcast
+changed_paths:
+  - work/research/TASK-NET-RESEARCH-BROADCAST/sources.yaml
+  - work/research/TASK-NET-RESEARCH-BROADCAST/findings.md
+  - work/research/TASK-NET-RESEARCH-BROADCAST/proposals.md
+inputs:
+  - work/orders/TASK-NET-RESEARCH-BROADCAST/order.yaml
+  - work/orders/TASK-NET-RESEARCH-BROADCAST/brief.md
+  - work/orders/TASK-NET-RESEARCH-BROADCAST/PROMPT.md
+  - work/batches/network-foundations/README.md
+  - contracts/CONVENTIONS.md
+  - agents/roles/researcher.md
+  - knowledge/networking/AGENTS.md
+  - knowledge/networking/ipv4/address/unit.yaml
+  - knowledge/networking/ipv4/address/canonical.md
+  - knowledge/networking/ipv4/address/sources.yaml
+  - knowledge/networking/ipv4/cidr/unit.yaml
+outputs:
+  - work/research/TASK-NET-RESEARCH-BROADCAST/sources.yaml
+  - work/research/TASK-NET-RESEARCH-BROADCAST/findings.md
+  - work/research/TASK-NET-RESEARCH-BROADCAST/proposals.md
+claims_with_evidence:
+  - claim: "RFC1122 distinguishes IP broadcast forms from link-layer broadcast delivery and defines host requirements for limited broadcast."
+    source_ids: [RFC1122]
+  - claim: "RFC2644 updates RFC1812 and requires directed broadcast router receive and forwarding options to default to blocking."
+    source_ids: [RFC2644]
+  - claim: "IEEE SA identifies IEEE 802.1Q-2022 as the active Bridges and Bridged Networks standard covering MAC Bridges and VLAN Bridges."
+    source_ids: [IEEE8021Q2022]
+  - claim: "The accessible IEEE source did not expose the normative clause needed to verify the broadcast-domain boundary and unknown-unicast forwarding behavior."
+    source_ids: [IEEE8021Q2022]
+checks_run:
+  - "Browsed RFC Editor primary records and full texts for RFC919, RFC922, RFC1122, RFC2644 on 2026-10-26; captured exact relevant sections and metadata in sources.yaml/findings.md."
+  - "Browsed IEEE Standards Association official IEEE Std 802.1Q-2022 record on 2026-10-26; standard status, scope, amendments and access route captured; normative PDF/clause was not opened."
+  - "python tools/validate.py: PASS (3 units, 4 outcomes, 1 questions, 9 work orders; structural references and hours valid; factual correctness/normative compliance not validated)"
+open_questions:
+  - "Obtain and inspect the full IEEE Std 802.1Q-2022 text and amendments to verify exact VLAN/bridge broadcast scope and unknown-unicast filtering rules (including clause 8.6.3 applicability)."
+  - "RFC1122 errata were not audited item-by-item for §§3.2.1.3 and 3.3.6; reviewer should verify whether relevant errata affect these statements."
+  - "Review exact conceptual definition of L2 broadcast domain for intended topology before promoting it to canonical knowledge; current IEEE evidence confirms scope but not normative clause details."
+next_role: machine_reviewer
