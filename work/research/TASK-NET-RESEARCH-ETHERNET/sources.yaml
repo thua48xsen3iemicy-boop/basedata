@@ -1,0 +1,97 @@
+- id: IEEE8023_2022
+  title: IEEE Standard for Ethernet
+  url: https://standards.ieee.org/ieee/802.3/10422/
+  publisher: IEEE Standards Association
+  version: IEEE Std 802.3-2022
+  accessed_at: 2026-10-26
+  sections: null
+  document_status: Active Standard; published 2022-07-29; supersedes IEEE 802.3-2018
+  updates: null
+  obsoleted_by: null
+  access_status: Metadata and abstract accessible; normative standard text not retrieved
+  notes: >-
+    Official page says IEEE GET program provides downloads, but its endpoint returned
+    HTTP 418 through the browser tool and a direct download request was blocked by the
+    network proxy. The abstract says IEEE 802.3 specifies the common MAC and CSMA/CD
+    MAC protocol for shared half-duplex and full-duplex operation. Amendments and
+    corrigenda are listed on the page; exact clause-level effects were not evaluated.
+- id: IEEE8021Q_2022
+  title: IEEE Standard for Local and Metropolitan Area Networks—Bridges and Bridged Networks
+  url: https://standards.ieee.org/ieee/802.1Q/10323/
+  publisher: IEEE Standards Association
+  version: IEEE Std 802.1Q-2022
+  accessed_at: 2026-10-26
+  sections: null
+  document_status: Active Standard; published 2022-12-22; supersedes IEEE 802.1Q-2018
+  updates: null
+  obsoleted_by: null
+  access_status: Metadata and abstract accessible; normative standard text not retrieved
+  notes: >-
+    The official page states this standard specifies MAC service over bridged networks
+    and operation of MAC bridges and VLAN bridges, including algorithms. It lists active
+    amendments through 802.1Qdy-2025. GET document endpoint inaccessible via web gateway;
+    source learning, forwarding, filtering, and flooding clauses therefore remain unchecked.
+- id: IEEE_RA_ETHERTYPE
+  title: IEEE Registration Authority—EtherType
+  url: https://standards.ieee.org/products-programs/regauth/ethertype/
+  publisher: IEEE Standards Association Registration Authority
+  version: Current web page; version/date not stated
+  accessed_at: 2026-10-26
+  sections: EtherType description
+  document_status: Current public registry information
+  updates: null
+  obsoleted_by: null
+  access_status: Accessible
+  notes: >-
+    IEEE RA describes EtherType as protocol identification/context for interpreting
+    the data field and points to IEEE 802.3 clauses 3, 3.1.1, and 3.2.6. It does not
+    itself establish the complete frame layout or bridge forwarding rules.
+- id: RFC894
+  title: A Standard for the Transmission of IP Datagrams over Ethernet Networks
+  url: https://www.rfc-editor.org/info/rfc894
+  publisher: RFC Editor / IETF RFC Series
+  version: RFC 894, STD 41; 1984-04-01; Internet Standard
+  accessed_at: 2026-10-26
+  sections: Frame Format; Status of this Memo
+  document_status: Internet Standard (STD 41)
+  updates: []
+  obsoleted_by: []
+  access_status: Accessible
+  notes: >-
+    RFC Editor info page checked for metadata and full text. No Updates, Obsoletes,
+    Updated by, or Obsoleted by relation was displayed. Errata page is linked; no
+    substantive erratum was evaluated. RFC is limited to IP over the original 10 Mb/s,
+    48-bit Ethernet context in its Introduction and does not specify bridge learning.
+- id: RFC1042
+  title: Standard for the Transmission of IP Datagrams over IEEE 802 Networks
+  url: https://www.rfc-editor.org/info/rfc1042
+  publisher: RFC Editor / IETF RFC Series
+  version: RFC 1042, STD 43; 1988-02; Internet Standard
+  accessed_at: 2026-10-26
+  sections: Introduction; Header Format; Frame Format and MAC Level Issues; For IEEE 802.3
+  document_status: Internet Standard (STD 43)
+  updates: []
+  obsoleted_by: []
+  access_status: Accessible
+  notes: >-
+    RFC Editor metadata shows RFC 1042 obsoletes RFC 948. No Updates or later
+    Obsoleted by relationship was displayed. RFC Editor errata page has two entries
+    held for document update, including technical erratum 1329, relevant to an ARP
+    minimum-packet-size sentence; this research does not rely on that sentence.
+    The RFC describes IP/ARP encapsulation on multiple historical IEEE 802 LANs,
+    not current Ethernet bridge relay behavior.
+- id: IEEE8023_INTERP_4_07_02
+  title: IEEE P802.3 Interpretation 04-07/02—Maximum Frame Size
+  url: https://grouper.ieee.org/groups/802/3/interp/interp-4-0702.pdf
+  publisher: IEEE 802.3 Working Group
+  version: Interpretation 4-07/02; date not established from fetched metadata
+  accessed_at: 2026-10-26
+  sections: Relevant Clause 4.2.4.2
+  document_status: Official working-group interpretation; historical, not a standard edition
+  updates: null
+  obsoleted_by: null
+  access_status: Accessible
+  notes: >-
+    Interpretation concerns earlier 802.3 wording. It states the 1518-octet untagged
+    and 1522-octet tagged limits in its request text, but cannot substitute for checking
+    the current normative 802.3/802.1Q editions.
