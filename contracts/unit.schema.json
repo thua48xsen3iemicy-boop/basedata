@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "domain",
+    "classification",
+    "status",
+    "revision",
+    "prerequisites",
+    "outcomes",
+    "content_file",
+    "misconceptions_file",
+    "sources_file"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9]*(\\.[A-Z0-9]+)+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3
+    },
+    "domain": {
+      "type": "string",
+      "minLength": 2
+    },
+    "classification": {
+      "enum": [
+        "fundamental",
+        "applied",
+        "versioned_tool"
+      ]
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "machine_reviewed",
+        "expert_approved",
+        "published",
+        "deprecated"
+      ]
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "prerequisites": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "outcomes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "statement",
+          "level"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^LO\\.[A-Z0-9.]+$"
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 12
+          },
+          "level": {
+            "enum": [
+              "know",
+              "understand",
+              "apply",
+              "analyze",
+              "evaluate",
+              "create"
+            ]
+          }
+        }
+      }
+    },
+    "content_file": {
+      "type": "string",
+      "pattern": "^[^/]+\\.md$"
+    },
+    "misconceptions_file": {
+      "type": "string",
+      "pattern": "^[^/]+\\.yaml$"
+    },
+    "sources_file": {
+      "type": "string",
+      "pattern": "^[^/]+\\.yaml$"
+    }
+  }
+}

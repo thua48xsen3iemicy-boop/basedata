@@ -1,0 +1,14 @@
+# Copy to work/orders/<UNIQUE-ID>/order.yaml
+id: TASK-REPLACE-ME
+status: proposed
+role: author
+scope:
+  allowed_paths:
+    - knowledge/networking/ipv4/cidr/
+  read_ids:
+    - NET.IPV4.CIDR
+goal: "Add a bounded improvement to CIDR learning content"
+acceptance:
+  - "Run python tools/validate.py"
+  - "Provide source evidence and identify unresolved claims"
+next_role: machine_reviewer

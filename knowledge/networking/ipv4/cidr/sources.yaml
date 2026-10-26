@@ -1,0 +1,10 @@
+- id: RFC4632
+  url: https://www.rfc-editor.org/rfc/rfc4632
+  kind: primary_specification
+  applicability: "CIDR addressing and prefix semantics"
+  reviewed: false
+- id: RFC791
+  url: https://www.rfc-editor.org/rfc/rfc791
+  kind: primary_specification
+  applicability: "IPv4 fundamentals"
+  reviewed: false

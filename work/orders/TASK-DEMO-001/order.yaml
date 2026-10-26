@@ -1,0 +1,13 @@
+id: TASK-DEMO-001
+status: example_only
+role: author
+scope:
+  allowed_paths:
+    - knowledge/networking/ipv4/cidr/
+  read_ids:
+    - NET.IPV4.CIDR
+goal: "Example: improve a simple CIDR explanation without altering the canonical principle"
+acceptance:
+  - "All metadata valid"
+  - "At least one authoritative source linked"
+next_role: machine_reviewer

@@ -1,0 +1,19 @@
+id: NET.IPV4.CIDR
+title: "Префиксная запись IPv4 / CIDR"
+domain: networking
+classification: fundamental
+status: draft
+revision: 1
+prerequisites:
+  - NET.IPV4.ADDRESS
+  - NET.IPV4.MASK
+outcomes:
+  - id: LO.NET.IPV4.CIDR.01
+    statement: "Интерпретировать длину префикса и число бит адресной части"
+    level: understand
+  - id: LO.NET.IPV4.CIDR.02
+    statement: "Для данного адреса и префикса вычислять адрес подсети"
+    level: apply
+content_file: canonical.md
+misconceptions_file: misconceptions.yaml
+sources_file: sources.yaml

@@ -1,0 +1,5 @@
+- id: RFC791
+  url: https://www.rfc-editor.org/rfc/rfc791
+  kind: primary_specification
+  applicability: "IPv4 protocol fundamentals"
+  reviewed: false

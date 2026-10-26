@@ -1,0 +1,15 @@
+unit_id: NET.IPV4.CIDR
+items:
+  - id: Q.NET.IPV4.CIDR.001
+    outcome_id: LO.NET.IPV4.CIDR.02
+    type: single_choice
+    difficulty: beginner
+    stem: "Какой адрес сети соответствует 192.168.10.70/26?"
+    options:
+      A: "192.168.10.0"
+      B: "192.168.10.64"
+      C: "192.168.10.70"
+      D: "192.168.10.128"
+    correct_option: B
+    rationale: "Сеть /26 разбивает последний октет на блоки по 64. Число 70 лежит в блоке 64–127."
+    status: draft

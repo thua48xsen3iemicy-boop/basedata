@@ -1,0 +1,17 @@
+task_id: TASK-DEMO-001
+role: author
+branch: "example/not-a-real-branch"
+changed_paths:
+  - knowledge/networking/ipv4/cidr/
+inputs:
+  - NET.IPV4.CIDR
+outputs:
+  - canonical.md
+claims_with_evidence:
+  - claim: "CIDR /26 reserves 26 bits for prefix"
+    source_ids: [RFC4632]
+checks_run:
+  - "Example only; validation not asserted"
+open_questions:
+  - "Needs expert confirmation prior to publication"
+next_role: machine_reviewer
