@@ -1,0 +1,34 @@
+task_id: TASK-NET-RESEARCH-ETHERNET
+role: researcher
+branch: research/network-foundations-ethernet
+changed_paths:
+  - work/research/TASK-NET-RESEARCH-ETHERNET/sources.yaml
+  - work/research/TASK-NET-RESEARCH-ETHERNET/findings.md
+  - work/research/TASK-NET-RESEARCH-ETHERNET/proposals.md
+inputs:
+  - work/orders/TASK-NET-RESEARCH-ETHERNET/PROMPT.md at a2976ebf442f2b7255e66bf22294afc8ce00ec75
+  - work/orders/TASK-NET-RESEARCH-ETHERNET/order.yaml at a2976ebf442f2b7255e66bf22294afc8ce00ec75
+  - work/orders/TASK-NET-RESEARCH-ETHERNET/brief.md at a2976ebf442f2b7255e66bf22294afc8ce00ec75
+  - AGENTS.md, contracts/CONVENTIONS.md, agents/roles/researcher.md, work/batches/network-foundations/README.md
+outputs:
+  - work/research/TASK-NET-RESEARCH-ETHERNET/sources.yaml
+  - work/research/TASK-NET-RESEARCH-ETHERNET/findings.md
+  - work/research/TASK-NET-RESEARCH-ETHERNET/proposals.md
+claims_with_evidence:
+  - claim: RFC 894 specifies IP Type 0x0800 and an IP data field, with stated minimum padding behavior and a 1500 octet datagram maximum.
+    source_ids: [RFC894]
+  - claim: RFC 1042 describes LLC/SNAP encapsulation and a historical 1492 octet IP datagram calculation for its 10BASE5 IEEE 802.3 discussion.
+    source_ids: [RFC1042]
+  - claim: IEEE RA describes EtherType protocol identification and points to IEEE 802.3 clauses 3, 3.1.1, and 3.2.6.
+    source_ids: [IEEE_RA_ETHERTYPE]
+  - claim: IEEE catalog metadata identifies current editions 802.3-2022 and 802.1Q-2022, but their normative clauses were unavailable in this retrieval session.
+    source_ids: [IEEE8023_2022, IEEE8021Q_2022]
+checks_run:
+  - "python tools/validate.py: PASS (structural references and hours valid; factual correctness not validated)"
+  - "git diff --check: PASS"
+open_questions:
+  - IEEE 802.3-2022 clause-level frame format, Length/Type details, byte-count boundaries, size constraints, and full-duplex/CSMA/CD clauses remain unverified because normative text could not be fetched.
+  - IEEE 802.1Q-2022 clauses and tables for source-MAC learning, filtering, forwarding, and flooding remain unverified because normative text could not be fetched.
+  - 'RFC 894 Frame Format contains an apparent internal wording inconsistency: it says “minimum length” for the 1500-octet value before calling it a maximum datagram length.'
+  - IEEE amendments and corrigenda listed on the active catalog pages were not checked for effects on the specific claims.
+next_role: machine_reviewer
