@@ -1,0 +1,62 @@
+task_id: TASK-NET-SECOND-PASS
+role: researcher
+branch: research/network-foundations-second-pass
+changed_paths:
+  - work/research/TASK-NET-RESEARCH-BROADCAST/findings.md
+  - work/research/TASK-NET-RESEARCH-MAC/sources.yaml
+  - work/research/TASK-NET-RESEARCH-MAC/proposals.md
+  - work/research/TASK-NET-RESEARCH-ETHERNET/sources.yaml
+  - work/research/TASK-NET-RESEARCH-ETHERNET/findings.md
+  - work/research/TASK-NET-RESEARCH-ETHERNET/proposals.md
+  - work/research/TASK-NET-RESEARCH-ARP/sources.yaml
+  - work/research/TASK-NET-RESEARCH-BROADCAST/sources.yaml
+  - work/research/TASK-NET-RESEARCH-BROADCAST/proposals.md
+  - work/research/TASK-NET-RESEARCH-IPV4/sources.yaml
+  - work/research/TASK-NET-RESEARCH-DIRECT/sources.yaml
+  - work/research/TASK-NET-RESEARCH-STATIC/sources.yaml
+  - work/research/TASK-NET-RESEARCH-STATIC/findings.md
+  - work/research/TASK-NET-RESEARCH-STATIC/proposals.md
+  - work/research/TASK-NET-RESEARCH-DEFAULT/sources.yaml
+  - work/research/TASK-NET-RESEARCH-DEFAULT/findings.md
+  - work/research/TASK-NET-RESEARCH-DEFAULT/proposals.md
+  - work/research/TASK-NET-SECOND-PASS/report.md
+inputs:
+  - work/orders/TASK-NET-SECOND-PASS/PROMPT.md
+  - work/orders/TASK-NET-SECOND-PASS/order.yaml
+  - work/orders/TASK-NET-SECOND-PASS/brief.md
+  - work/orders/TASK-NET-SECOND-PASS/REVIEW.md
+  - work/batches/network-foundations/README.md
+  - agents/roles/researcher.md
+  - contracts/CONVENTIONS.md
+outputs:
+  - work/research/TASK-NET-SECOND-PASS/report.md
+  - work/research/TASK-NET-RESEARCH-STATIC/sources.yaml
+  - work/research/TASK-NET-RESEARCH-STATIC/findings.md
+  - work/research/TASK-NET-RESEARCH-STATIC/proposals.md
+  - work/research/TASK-NET-RESEARCH-DEFAULT/sources.yaml
+  - work/research/TASK-NET-RESEARCH-DEFAULT/findings.md
+  - work/research/TASK-NET-RESEARCH-DEFAULT/proposals.md
+claims_with_evidence:
+  - claim: "A scoped Cisco switch example learns the source and forwards, filters, or floods based on destination and VLAN. Onlink is an explicit direct adjacency assertion in iproute2. All are draft. Open questions include current IEEE and full Linux recursion semantics."
+    source_ids: [CISCO_SWITCH, CISCO_LEARN, IPROUTE2_MAN]
+  - claim: "RFC 894 specifies the all-ones Ethernet broadcast address for its 10Mbps Ethernet IP context."
+    source_ids: [RFC894]
+  - claim: "RFC 1122 section 2.3.3 specifies RFC 894 sending as the default for a dual-format 10Mbps Ethernet Internet host."
+    source_ids: [RFC1122, RFC894, RFC1042]
+  - claim: "RFC 1812 selects the longest matching installed prefix before metric or vendor policy in its conceptual router lookup."
+    source_ids: [RFC1812]
+  - claim: "RFC 4632 calls 0.0.0.0/0 the default route, while ARP targets the selected immediate next hop in the Ethernet example."
+    source_ids: [RFC4632, RFC826]
+checks_run:
+  - "Follow-up: unshare -Urn isolated loopback experiment; dummy/veth unavailable; on-prefix gateway and default accepted, recursive gateway chain rejected, onlink accepted. Kernel 6.18.55 and iproute2 6.15.0."
+  - "python tools/validate.py: PASS, 3 units, 4 outcomes, 1 questions, 10 work orders."
+  - "git diff --check: exit 0."
+  - "Python yaml.safe_load: eight root lists, required fields present, source IDs unique within each topic."
+  - "Findings source-ID scan: claimed source IDs resolved; RFC1812 in BROADCAST appears as context of RFC2644 update."
+open_questions:
+  - "Follow-up: Linux 6.18.55 loopback namespace rejected a gateway reachable only through another gateway; validate full recursion semantics with version-pinned kernel source and Ethernet namespace. Online iproute2 manual is untagged."
+  - "Cisco vendor-scoped Ethernet and bridge examples now have answers; current IEEE normative clauses still require independent access."
+  - "IEEE 802.3/802.1Q normative clauses and applicable amendments unavailable; complete frame-size and bridge-relay keys remain blocked."
+  - "Static-route installation/recursion and same-prefix preference need a named platform and official versioned documentation."
+  - "Linux iproute2 pages lack tagged release; RFC update effects and IANA live registry not exhaustively re-audited."
+next_role: machine_reviewer

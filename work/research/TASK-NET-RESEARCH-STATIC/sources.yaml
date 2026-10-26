@@ -1,0 +1,59 @@
+- id: RFC1812
+  title: Requirements for IP Version 4 Routers
+  url: https://www.rfc-editor.org/rfc/rfc1812.html
+  publisher: IETF / RFC Editor
+  version: RFC 1812, June 1995; Proposed Standard
+  accessed_at: 2026-10-27
+  sections: ["5.2.1.2 Unicast", "5.2.4.2 Local/Remote Decision", "5.2.4.3 Next Hop Address", "5.2.4.4 Administrative Preference"]
+  document_status: Proposed Standard; obsoletes RFC 1716 and RFC 1009
+  updates: []
+  updated_by: [RFC 2644, RFC 6633]
+  obsoleted_by: []
+  obsoletes: [RFC 1716, RFC 1009]
+  access_status: full_text_accessed_via_web
+  notes: RFC 2644 changes directed-broadcast default and RFC 6633 deprecates Source Quench; neither changes the cited route selection example. RFC router FIB requirements do not define a universal configuration command or static-route installation policy.
+- id: RFC1122
+  title: Requirements for Internet Hosts - Communication Layers
+  url: https://www.rfc-editor.org/rfc/rfc1122.html
+  publisher: IETF / RFC Editor
+  version: RFC 1122, October 1989; STD 3
+  accessed_at: 2026-10-27
+  sections: ["3.3.1 Routing Outbound Datagrams", "3.3.1.1 Local/Remote Decision", "3.3.1.2 Gateway Selection"]
+  document_status: Internet Standard
+  updates: []
+  updated_by: [RFC 1349, RFC 4379, RFC 5884, RFC 6093, RFC 6298, RFC 6633, RFC 6864, RFC 8029, RFC 9293]
+  obsoleted_by: []
+  access_status: full_text_accessed_via_web
+  notes: Host gateway selection only; no platform static-route syntax. Updated-by list from RFC Editor metadata, substantive impact on this narrow example not individually verified.
+- id: RFC826
+  title: An Ethernet Address Resolution Protocol
+  url: https://www.rfc-editor.org/rfc/rfc826.html
+  publisher: IETF / RFC Editor
+  version: RFC 826, November 1982; STD 37
+  accessed_at: 2026-10-26
+  sections: ["Packet Generation"]
+  document_status: Internet Standard
+  updates: []
+  updated_by: [RFC 5227, RFC 5494]
+  obsoleted_by: []
+  access_status: inherited_from_first_pass_not_reopened
+  notes: Next-hop address resolution boundary; retain old access date. RFC 5227 concerns address conflict detection; RFC 5494 ARP parameter registry.
+
+- id: IPROUTE2_MAN
+  title: ip-route(8) routing table management
+  url: https://man7.org/linux/man-pages/man8/ip-route.8.html
+  publisher: iproute2 project; man7 rendering
+  version: upstream manual web rendering, untagged; retrieved 2026-10-27
+  accessed_at: '2026-10-27'
+  sections:
+  - SYNOPSIS
+  - 'DESCRIPTION: dev, via, metric, onlink, default'
+  - EXAMPLES
+  document_status: Upstream project documentation; web rendering is not pinned to
+    release
+  updates: null
+  obsoleted_by: null
+  access_status: full_text_accessed_via_web
+  notes: onlink, metric, prefix and route syntax checked. Document history and version
+    unknown. Runtime iproute2 6.15.0; kernel 6.18.55, experiment is separate from
+    documentation.

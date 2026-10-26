@@ -30,7 +30,7 @@
   sections:
     - RFC Editor status and document history metadata
   document_status: Obsolete; RFC Editor directs readers to RFC 9542
-  updates: RFC 2153
+  updates: [RFC 2153]
   obsoleted_by: RFC 9542
   access_status: metadata_accessed_only
   notes: >-
@@ -38,7 +38,7 @@
     it is not used here as technical evidence. RFC 9542 is the current replacement.
 
 - id: IEEE-MAC-TUTORIAL
-  title: Standard Group MAC Addresses: A Tutorial Guide
+  title: "Standard Group MAC Addresses: A Tutorial Guide"
   url: https://standards.ieee.org/wp-content/uploads/import/documents/tutorials/macgrp.pdf
   publisher: IEEE Registration Authority / IEEE Standards Association
   version: Edition/date not stated in the accessed PDF; version unknown
@@ -108,7 +108,8 @@
     - "Packet format"
     - "Packet Generation"
   document_status: Internet Standard (STD 37), RFC Editor metadata checked
-  updates: RFC 5227, RFC 5494
+  updates: []
+  updated_by: [RFC 5227, RFC 5494]
   obsoleted_by: null
   access_status: full_text_accessed
   notes: >-
