@@ -1,0 +1,42 @@
+task_id: TASK-NET-RESEARCH-IPV4
+role: researcher
+branch: research/network-foundations-ipv4
+changed_paths:
+  - work/research/TASK-NET-RESEARCH-IPV4/sources.yaml
+  - work/research/TASK-NET-RESEARCH-IPV4/findings.md
+  - work/research/TASK-NET-RESEARCH-IPV4/proposals.md
+inputs:
+  - work/orders/TASK-NET-RESEARCH-IPV4/PROMPT.md
+  - work/orders/TASK-NET-RESEARCH-IPV4/order.yaml
+  - work/orders/TASK-NET-RESEARCH-IPV4/brief.md
+  - work/batches/network-foundations/README.md
+  - knowledge/networking/ipv4/address/unit.yaml
+  - knowledge/networking/ipv4/address/canonical.md
+  - knowledge/networking/ipv4/address/sources.yaml
+  - knowledge/networking/ipv4/address/misconceptions.yaml
+  - knowledge/networking/ipv4/mask/unit.yaml
+  - knowledge/networking/ipv4/mask/canonical.md
+  - knowledge/networking/ipv4/cidr/unit.yaml
+  - knowledge/networking/ipv4/cidr/canonical.md
+outputs:
+  - work/research/TASK-NET-RESEARCH-IPV4/sources.yaml
+  - work/research/TASK-NET-RESEARCH-IPV4/findings.md
+  - work/research/TASK-NET-RESEARCH-IPV4/proposals.md
+claims_with_evidence:
+  - claim: "IPv4 is a 32-bit value (four octets); strict dotted-decimal IPv4 URI literal syntax uses four decimal octets, each 0 through 255."
+    source_ids: [RFC791, RFC3986]
+  - claim: "CIDR prefix length is a decimal number from 0 through 32 denoting significant leading bits, whose mask uses leading ones followed by zeroes."
+    source_ids: [RFC4632]
+  - claim: "On an IPv4 point-to-point /31 link, both endpoint addresses are host addresses; limited broadcast is used for broadcast traffic."
+    source_ids: [RFC3021]
+  - claim: "RFC1918 private-use blocks are 10/8, 172.16/12, and 192.168/16; special-purpose/reachability properties are broader and distinct."
+    source_ids: [RFC1918, IANA-IPV4-SPECIAL]
+checks_run:
+  - "Browsed and read primary RFC Editor HTML and IANA registry entries; cross-checked RFC metadata/status and Updates/Obsoletes on RFC Editor info pages on 2026-10-26."
+  - "python tools/validate.py: PASS (3 units, 4 outcomes, 1 questions, 9 work orders; structural references and hours valid; validator notes factual correctness/source license/normative compliance/human approval are not validated)."
+  - "git diff --check: PASS"
+open_questions:
+  - "RFC3021 scopes /31 exception to point-to-point links; it does not define general /32 interface acceptance. An author/reviewer must specify a platform/protocol context before making a stronger /32 usage claim."
+  - "RFC3986 dotted-decimal constraint is explicitly URI host grammar; do not generalize it as a universal parser contract for all operating systems and APIs."
+  - "IANA special-purpose registry is live data (last updated 2025-10-09 at access); claims about special ranges must cite a dated registry revision."
+next_role: machine_reviewer
