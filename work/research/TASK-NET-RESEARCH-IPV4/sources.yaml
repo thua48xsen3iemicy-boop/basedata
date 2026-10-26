@@ -1,0 +1,84 @@
+- id: RFC791
+  title: "Internet Protocol"
+  url: https://www.rfc-editor.org/rfc/rfc791.html
+  publisher: "RFC Editor / IETF"
+  version: "RFC 791, September 1981; Internet Standard, STD 5"
+  accessed_at: "2026-10-26"
+  sections: ["2. Addressing", "3.2 Discussion; Source Address and Destination Address fields"]
+  document_status: "Internet Standard; RFC Editor metadata lists RFC 760 as obsoleted and RFCs 1349, 2474, 6864 as updates"
+  updates: ["RFC 1349", "RFC 2474", "RFC 6864"]
+  obsoleted_by: null
+  access_status: "read"
+  notes: "Section 2's network/class fields describe the older classful model; use only its stable 32-bit/four-octet fact here. The metadata has no current replacement listed."
+- id: RFC1122
+  title: "Requirements for Internet Hosts - Communication Layers"
+  url: https://www.rfc-editor.org/rfc/rfc1122.html
+  publisher: "RFC Editor / IETF"
+  version: "RFC 1122, October 1989; Internet Standard, STD 3"
+  accessed_at: "2026-10-26"
+  sections: ["3.2.1.3 Addressing", "3.2.1.3(e), as replaced by RFC 3021"]
+  document_status: "Internet Standard; RFC Editor metadata lists updates RFC 1349, 4379, 5884, 6093, 6298, 6633, 6864, 8029, 9293; no obsoleting RFC listed"
+  updates: ["RFC 1349", "RFC 4379", "RFC 5884", "RFC 6093", "RFC 6298", "RFC 6633", "RFC 6864", "RFC 8029", "RFC 9293"]
+  obsoleted_by: null
+  access_status: "read"
+  notes: "For the network/broadcast claim, subsection 3.2.1.3(e) is read with RFC 3021's explicit replacement. RFC 1122 contains historic addressing forms and is not a source for contemporary universal usable-host counts."
+- id: RFC4632
+  title: "Classless Inter-domain Routing (CIDR): The Internet Address Assignment and Aggregation Plan"
+  url: https://www.rfc-editor.org/rfc/rfc4632.html
+  publisher: "RFC Editor / IETF"
+  version: "RFC 4632, August 2006; BCP 122, Best Current Practice"
+  accessed_at: "2026-10-26"
+  sections: ["3.1 Basic Concept and Prefix Notation"]
+  document_status: "Best Current Practice; obsoletes RFC 1519; RFC Editor metadata lists no updates or obsoleting RFC"
+  updates: []
+  obsoleted_by: null
+  access_status: "read"
+  notes: "Defines explicit classless prefix lengths in the range 0–32, the prefix mask bit pattern, and aligned power-of-two blocks; routing policy is outside the learning proposal."
+- id: RFC1918
+  title: "Address Allocation for Private Internets"
+  url: https://www.rfc-editor.org/rfc/rfc1918.html
+  publisher: "RFC Editor / IETF"
+  version: "RFC 1918, February 1996; BCP 5, Best Current Practice"
+  accessed_at: "2026-10-26"
+  sections: ["3. Private Address Space"]
+  document_status: "Best Current Practice; obsoletes RFCs 1597 and 1627; updated by RFC 6761"
+  updates: ["RFC 6761"]
+  obsoleted_by: null
+  access_status: "read"
+  notes: "RFC 6761 concerns special-use domain names; the listed private IPv4 blocks are corroborated against the current IANA special-purpose registry."
+- id: RFC3021
+  title: "Using 31-Bit Prefixes on IPv4 Point-to-Point Links"
+  url: https://www.rfc-editor.org/rfc/rfc3021.html
+  publisher: "RFC Editor / IETF"
+  version: "RFC 3021, December 2000; Proposed Standard (Standards Track)"
+  accessed_at: "2026-10-26"
+  sections: ["2.1 Addressing", "2.2 Broadcast and Network Addresses", "3.1 update to RFC 1122 section 3.2.1.3(e)", "5 Deployment Considerations"]
+  document_status: "Proposed Standard; no updates or obsoleting RFC listed in RFC Editor metadata"
+  updates: []
+  obsoleted_by: null
+  access_status: "read"
+  notes: "Scope is IPv4 point-to-point links using a /31 prefix; the RFC explicitly excludes other interface types and warns that both endpoints need support."
+- id: IANA-IPV4-SPECIAL
+  title: "IPv4 Special-Purpose Address Space"
+  url: https://www.iana.org/assignments/iana-ipv4-special-registry
+  publisher: "IANA"
+  version: "Live registry; last updated 2025-10-09"
+  accessed_at: "2026-10-26"
+  sections: ["Registry note and table columns Address Block, Source, Destination, Forwardable, Globally Reachable, Reserved-by-Protocol"]
+  document_status: "Current maintained registry; references RFC 5736, RFC 6890, Errata 6404, RFC 8190"
+  updates: ["RFC 8190 (registry update reference)"]
+  obsoleted_by: null
+  access_status: "read"
+  notes: "Registry states listed prefixes are not guaranteed routability in any particular local or global context; properties are per-entry and distinct."
+- id: RFC3986
+  title: "Uniform Resource Identifier (URI): Generic Syntax"
+  url: https://www.rfc-editor.org/rfc/rfc3986.html
+  publisher: "RFC Editor / IETF"
+  version: "RFC 3986, January 2005; Internet Standard, STD 66"
+  accessed_at: "2026-10-26"
+  sections: ["3.2.2 Host", "7.4 Rare IP Address Formats", "Appendix A collected ABNF"]
+  document_status: "Internet Standard; RFC Editor metadata says updates RFC 1738, is updated by RFC 7320 and RFC 8820, obsoletes RFCs 1808, 2732, 2396"
+  updates: ["RFC 7320", "RFC 8820"]
+  obsoleted_by: null
+  access_status: "read"
+  notes: "Used only for strict IPv4 literal dotted-decimal syntax, not as a general configuration parser standard."
