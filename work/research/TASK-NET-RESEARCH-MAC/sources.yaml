@@ -1,0 +1,157 @@
+- id: RFC9542
+  title: IANA Considerations and IETF Protocol and Documentation Usage for IEEE 802 Parameters
+  url: https://www.rfc-editor.org/rfc/rfc9542.html
+  publisher: IETF / RFC Editor
+  version: RFC 9542, BCP 141, April 2024
+  accessed_at: 2026-10-26
+  sections:
+    - "1.1 Notations Used in This Document"
+    - "2.1 48-Bit MAC Identifiers, OUIs, and Other Prefixes; Table 1; Figure 1"
+    - "2.1.1 Special First Octet Bits; Table 2"
+    - "2.1.2 OUIs and CIDs"
+    - "6 Security Considerations"
+  document_status: Best Current Practice; RFC Editor states it obsoletes RFC 7042
+  updates: null
+  obsoleted_by: null
+  access_status: full_text_accessed
+  notes: >-
+    RFC Editor metadata and the document's own header were checked. The document is BCP
+    141 and the current successor to RFC 7042; its IEEE policy descriptions are expressly
+    informative, and IEEE sources prevail for IEEE policy/standards (Section 2, paragraph 1).
+    Section 1.1 says the RFC displays octets in IETF/network bit ordering while bits on an
+    IEEE 802.3 link are transmitted lowest-order to highest-order within each octet.
+
+- id: RFC7042
+  title: IANA Considerations and IETF Protocol and Documentation Usage for IEEE 802 Parameters
+  url: https://www.rfc-editor.org/info/rfc7042/
+  publisher: IETF / RFC Editor
+  version: RFC 7042, BCP 141, October 2013
+  accessed_at: 2026-10-26
+  sections:
+    - RFC Editor status and document history metadata
+  document_status: Obsolete; RFC Editor directs readers to RFC 9542
+  updates: RFC 2153
+  obsoleted_by: RFC 9542
+  access_status: metadata_accessed_only
+  notes: >-
+    RFC Editor metadata shows RFC 7042 itself obsoleted RFC 5342 and updated RFC 2153;
+    it is not used here as technical evidence. RFC 9542 is the current replacement.
+
+- id: IEEE-MAC-TUTORIAL
+  title: Standard Group MAC Addresses: A Tutorial Guide
+  url: https://standards.ieee.org/wp-content/uploads/import/documents/tutorials/macgrp.pdf
+  publisher: IEEE Registration Authority / IEEE Standards Association
+  version: Edition/date not stated in the accessed PDF; version unknown
+  accessed_at: 2026-10-26
+  sections:
+    - "Binary and Hexadecimal Representation of LAN MAC Addresses"
+    - "Figure 1 - Representation of LAN MAC Addresses"
+  document_status: Official IEEE Registration Authority tutorial; not an IEEE standard
+  updates: null
+  obsoleted_by: null
+  access_status: full_text_accessed
+  notes: >-
+    Official tutorial PDF text was opened. It states that the 48-bit form is six octets,
+    shown left-to-right in transmission order; bits within an octet are transmitted
+    least-significant bit first; the Individual/Group bit is the least-significant bit
+    and the U/L bit is the next. Because no edition date is printed in the accessed PDF,
+    do not attribute a guessed edition. Use it as explanatory IEEE RA material, not a
+    substitute for IEEE Std 802 or 802.3.
+
+- id: IEEE-RA-MAC
+  title: MAC Addresses
+  url: https://standards.ieee.org/products-programs/regauth/mac/
+  publisher: IEEE Standards Association Registration Authority
+  version: Current web page; no publication/version date stated
+  accessed_at: 2026-10-26
+  sections:
+    - "MAC Addresses"
+    - "MAC Address Block Large (MA-L)"
+    - "MAC Address Block Medium (MA-M)"
+    - "MAC Address Block Small (MA-S)"
+  document_status: Official IEEE RA informational page
+  updates: null
+  obsoleted_by: null
+  access_status: full_text_accessed
+  notes: >-
+    Confirms that IEEE RA provides blocks and describes MA-L, MA-M, and MA-S. No
+    publication date/version is displayed.
+
+- id: IEEE-RA-FAQ
+  title: IEEE Registration Authority FAQs
+  url: https://standards.ieee.org/faqs/regauth/
+  publisher: IEEE Standards Association Registration Authority
+  version: Current web page; no publication/version date stated
+  accessed_at: 2026-10-26
+  sections:
+    - "OUI, EUI-48, EUI-64, MAC ADDRESSES, CID"
+    - "What are an EUI-48 and an EUI-64?"
+    - "How can I obtain a universally unique MAC/Ethernet address?"
+  document_status: Official IEEE RA informational FAQ
+  updates: null
+  obsoleted_by: null
+  access_status: full_text_accessed
+  notes: >-
+    IEEE says EUI-48/EUI-64 are globally unique identifiers and that universally unique
+    MAC/Ethernet blocks are assigned by IEEE RA; do not infer that every 48-bit address
+    is universally unique. FAQ also says individual single address assignments are not
+    available from IEEE. Web page has no displayed publication/version date.
+
+- id: RFC826
+  title: An Ethernet Address Resolution Protocol
+  url: https://www.rfc-editor.org/rfc/rfc826.html
+  publisher: IETF / RFC Editor
+  version: RFC 826, November 1982
+  accessed_at: 2026-10-26
+  sections:
+    - Abstract
+    - "Packet format"
+    - "Packet Generation"
+  document_status: Internet Standard (STD 37), RFC Editor metadata checked
+  updates: RFC 5227, RFC 5494
+  obsoleted_by: null
+  access_status: full_text_accessed
+  notes: >-
+    Used only for the conceptual boundary: protocol routing determines the next-hop
+    protocol address, and address resolution maps the protocol/address pair to a 48-bit
+    Ethernet address for transmission. This is the Ethernet/ARP example in RFC 826,
+    not a claim that every link layer uses ARP.
+
+- id: RFC894
+  title: A Standard for the Transmission of IP Datagrams over Ethernet Networks
+  url: https://www.rfc-editor.org/info/rfc894/
+  publisher: IETF / RFC Editor
+  version: RFC 894, April 1984
+  accessed_at: 2026-10-26
+  sections:
+    - "Address Mappings"
+    - "Broadcast Address"
+  document_status: Internet Standard (STD 41), RFC Editor metadata and full text accessed
+  updates: null
+  obsoleted_by: null
+  access_status: full_text_accessed
+  notes: >-
+    Section Broadcast Address specifies the all-ones Ethernet destination as
+    FF-FF-FF-FF-FF-FF. The document scopes itself to IP datagrams over the original
+    10 Mb/s Ethernet with 48-bit addresses; keep that protocol/example context clear.
+
+- id: IEEE-802.3-2022-ACCESS
+  title: IEEE 802.3 Standards Available for Free Download / IEEE Standards Downloads
+  url: https://standards.ieee.org/downloads/
+  publisher: IEEE Standards Association
+  version: Listing accessed 2026-10-26; lists IEEE Std 802.3-2022
+  accessed_at: 2026-10-26
+  sections:
+    - "IEEE 802.3 downloads list"
+  document_status: Official listing; IEEE Std 802.3-2022 ZIP download could not be retrieved in this session
+  updates: null
+  obsoleted_by: null
+  access_status: metadata_accessed_only
+  notes: >-
+    The official listing provides a 802.3-2022 download link and IEEE 802.3 Working
+    Group says published standards are free after six months. Browser fetch rejected
+    ZIP as unsupported content type and direct curl returned HTTP 403. Current 2022
+    base text and any relevant amendments/corrigenda were therefore not inspected.
+    RFC 9542 references IEEE 802-2014 and IEEE 802c-2017 for identifier allocation;
+    the exact text of these standards was not accessed. The accessed IEEE tutorial and
+    RA pages are the accessible official evidence for this draft.
