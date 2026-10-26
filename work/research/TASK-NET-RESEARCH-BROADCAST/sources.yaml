@@ -1,0 +1,62 @@
+- id: IEEE8021Q2022
+  title: "IEEE Standard for Local and Metropolitan Area Networks—Bridges and Bridged Networks"
+  url: https://standards.ieee.org/ieee/802.1Q/10323/
+  publisher: IEEE Standards Association
+  version: "IEEE Std 802.1Q-2022; active standard page; amendments listed through 802.1Qdy-2025"
+  accessed_at: "2026-10-26"
+  sections: null
+  document_status: "Active Standard; supersedes IEEE 802.1Q-2018"
+  updates: null
+  obsoleted_by: null
+  access_status: "metadata_and_scope_accessible; normative_PDF_not_opened"
+  notes: "Official IEEE page says the standard specifies MAC service support in bridged networks and operation of MAC Bridges and VLAN Bridges. PDF offered through IEEE GET; exact clauses on broadcast domain boundaries and unknown-unicast forwarding were not verified. No claim below attributes those details to a read clause."
+- id: RFC919
+  title: "Broadcasting Internet Datagrams"
+  url: https://www.rfc-editor.org/info/rfc919/
+  publisher: RFC Editor / IETF
+  version: "RFC 919, October 1984; STD 5"
+  accessed_at: "2026-10-26"
+  sections: "1 Introduction; 2 Terminology; 4 Broadcast Classes; 5 Broadcast Methods; 6 Gateways and Broadcasts; 7 Broadcast IP Addressing - Proposed Standards"
+  document_status: "Internet Standard (STD 5); archival historical RFC; RFC Editor metadata page lists no Updates/Obsoletes relationship"
+  updates: []
+  obsoleted_by: []
+  access_status: "full_text_accessible_via_RFC_Editor"
+  notes: "RFC 919 itself says its discussion does not cover subnet/broadcast complications (section 1); use RFC 922 and later host/router requirements for the relevant details. Historical terminology and proposed rules are not treated as a current standalone L2 bridging standard."
+- id: RFC922
+  title: "Broadcasting Internet datagrams in the presence of subnets"
+  url: https://www.rfc-editor.org/info/rfc922/
+  publisher: RFC Editor / IETF
+  version: "RFC 922, October 1984; STD 5"
+  accessed_at: "2026-10-26"
+  sections: "2 Terminology; 4 Broadcast Classes; 5 Broadcast Methods; 6 Gateways and Broadcasts; 7 Broadcast IP Addressing - Conventions"
+  document_status: "Internet Standard (STD 5); archival historical RFC; RFC Editor metadata page lists no Updates/Obsoletes relationship"
+  updates: []
+  obsoleted_by: []
+  access_status: "full_text_accessible_via_RFC_Editor"
+  notes: "Section 2 distinguishes a local hardware network from logical IP networks/subnets. Section 7 gives the limited-broadcast non-forwarding convention and examples; later requirements in RFC 1122 and RFC 2644 are used for applicable current host/router behavior."
+- id: RFC1122
+  title: "Requirements for Internet Hosts - Communication Layers"
+  url: https://www.rfc-editor.org/info/rfc1122/
+  publisher: RFC Editor / IETF
+  version: "RFC 1122, October 1989; STD 3"
+  accessed_at: "2026-10-26"
+  sections: "3.2.1.3 Addressing; 3.3.6 Broadcasts"
+  document_status: "Internet Standard (STD 3); updated by RFC 1349, 4379, 5884, 6093, 6298, 6633, 6864, 8029, 9293; no obsoleting RFC listed"
+  updates:
+    - RFC 793
+  obsoleted_by: []
+  access_status: "full_text_and_metadata_accessible_via_RFC_Editor"
+  notes: "The listed updates address other protocol areas; the broadcast sections were read directly. Errata index was available, but this research did not audit each erratum for these exact sections. Section 3.3.6 says hosts SHOULD use limited broadcast for a connected network and distinguishes it from link-layer broadcast reception."
+- id: RFC2644
+  title: "Changing the Default for Directed Broadcasts in Routers"
+  url: https://www.rfc-editor.org/info/rfc2644/
+  publisher: RFC Editor / IETF
+  version: "RFC 2644, August 1999; BCP 34"
+  accessed_at: "2026-10-26"
+  sections: "1 Introduction; 3 Recommendation (updates RFC 1812 sections 4.2.2.11 and 5.3.5.2)"
+  document_status: "Best Current Practice (BCP 34); updates RFC 1812; no obsoleting RFC listed"
+  updates:
+    - RFC 1812
+  obsoleted_by: []
+  access_status: "full_text_and_metadata_accessible_via_RFC_Editor"
+  notes: "The normative change says router receive and forwarding options for network-prefix-directed broadcasts MUST default to blocking. This is a router default requirement, not a definition of an L2 broadcast domain or a claim that every directed broadcast is always dropped in every configured network."
