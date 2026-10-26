@@ -11,3 +11,7 @@ Candidate unit `NET.IPV4.ROUTE.DEFAULT` owns meaning of `0.0.0.0/0`; common look
 3. `LO.NET.IPV4.ROUTE.DEFAULT.03` (candidate): Explain an absent match and missing reverse path. **Scenario:** remove default and static `/24`; send to `203.0.113.40`. Then restore default but give the remote side no route to source `192.0.2.10`. **Answer:** first lookup has no match, so it cannot select a next hop. With default restored, an outbound next hop is selected, but a reply cannot be inferred; a reverse route is required. **Evidence:** RFC1812 §5.2.4.3 empty-set rule; RFC1122 §3.3.1 host outbound routing. No guarantee of end-to-end delivery follows from a local default.
 
 Common errors: treating `/0` as a usable host IP, ARPing for every remote IP, assuming default always wins, and assuming a route implies reverse connectivity. A separate author order should choose a named OS release before adding syntax or route preference values.
+
+## Linux static installation
+
+For iproute2, `ip route add default via 192.0.2.1 dev eth0` specifies a default via a gateway; `IPROUTE2_MAN` DESCRIPTION (`default`, `via`, `dev`). For a route through a link without a gateway, use a `dev` route. The gateway must be usable in the selected setup; `onlink` asserts direct adjacency and is not evidence of reachability or recursive resolution. See STATIC findings for the isolated loopback experiment and its limitations.

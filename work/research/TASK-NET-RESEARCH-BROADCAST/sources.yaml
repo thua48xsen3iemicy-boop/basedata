@@ -59,3 +59,34 @@
   obsoleted_by: []
   access_status: "full_text_and_metadata_accessible_via_RFC_Editor"
   notes: "The normative change says router receive and forwarding options for network-prefix-directed broadcasts MUST default to blocking. This is a router default requirement, not a definition of an L2 broadcast domain or a claim that every directed broadcast is always dropped in every configured network."
+
+- id: CISCO_SWITCH
+  title: Troubleshoot LAN Switching Environments
+  url: https://www.cisco.com/c/en/us/support/docs/lan-switching/ethernet/12006-chapter22.html
+  publisher: Cisco Systems
+  version: Document 12006, revision 2.0, 2022-12-02
+  accessed_at: '2026-10-27'
+  sections:
+  - VLANs
+  - Transparent Bridging Algorithm
+  document_status: Official vendor technical documentation
+  updates: null
+  obsoleted_by: null
+  access_status: full_text_accessed_via_web
+  notes: Cisco explanatory model, not normative IEEE 802.1Q; updates and replacement
+    history unknown. Assumes ordinary forwarding ports and no special filtering.
+
+- id: CISCO_LEARN
+  title: Understand Unexpected MAC Learning on Catalyst 9000 Series Switches
+  url: https://www.cisco.com/c/en/us/support/docs/switches/catalyst-9300-switch/222771-understand-unexpected-mac-learning-on-ca.pdf
+  publisher: Cisco Systems
+  version: Catalyst 9000 technical note; revision date unknown
+  accessed_at: '2026-10-27'
+  sections:
+  - Key takeaway
+  document_status: Official vendor technical documentation
+  updates: null
+  obsoleted_by: null
+  access_status: full_text_accessed_via_web
+  notes: Vendor description of ingress source MAC learning; updates and replacement
+    history unknown.

@@ -38,3 +38,22 @@
   obsoleted_by: []
   access_status: inherited_from_first_pass_not_reopened
   notes: Next-hop address resolution boundary; retain old access date. RFC 5227 concerns address conflict detection; RFC 5494 ARP parameter registry.
+
+- id: IPROUTE2_MAN
+  title: ip-route(8) routing table management
+  url: https://man7.org/linux/man-pages/man8/ip-route.8.html
+  publisher: iproute2 project; man7 rendering
+  version: upstream manual web rendering, untagged; retrieved 2026-10-27
+  accessed_at: '2026-10-27'
+  sections:
+  - SYNOPSIS
+  - 'DESCRIPTION: dev, via, metric, onlink, default'
+  - EXAMPLES
+  document_status: Upstream project documentation; web rendering is not pinned to
+    release
+  updates: null
+  obsoleted_by: null
+  access_status: full_text_accessed_via_web
+  notes: onlink, metric, prefix and route syntax checked. Document history and version
+    unknown. Runtime iproute2 6.15.0; kernel 6.18.55, experiment is separate from
+    documentation.

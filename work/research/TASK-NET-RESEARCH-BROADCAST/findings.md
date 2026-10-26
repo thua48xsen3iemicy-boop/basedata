@@ -28,3 +28,7 @@
 - RFC1122 — STD 3, опубликован октябре 1989; RFC Editor перечисляет Updates RFC 793 и Updated by RFC 1349, 4379, 5884, 6093, 6298, 6633, 6864, 8029, 9293. В доступных broadcast clauses более поздние updates к этим вопросам не указаны. Errata полностью не аудированы.
 - RFC2644 — BCP 34, опубликован августе 1999, Updates RFC1812. Его §3 заменяет конкретные router requirements; применён только для router default.
 - IEEE SA показывает IEEE 802.1Q-2022 как Active Standard, superseding 802.1Q-2018, publication date 2022-12-22, перечисляет amendments вплоть до 802.1Qdy-2025 и proposed projects. Утверждения о конкретных clauses 802.1Q не считаются подтверждёнными: PDF не был открыт.
+
+## Vendor-scoped evidence
+
+`CISCO_SWITCH`, “VLANs” and “Transparent Bridging Algorithm”, describes broadcast flooding to other ports in the same VLAN; `CISCO_LEARN`, “Key takeaway”, describes ingress source learning on Catalyst 9000. For a simple single-VLAN topology with forwarding ports, H1 broadcast reaches H2 across the switch; an IP router interface terminates the L2 frame and does not bridge it to H3. This is an explanatory Cisco model with no special filtering, not a verified current IEEE 802.1Q clause.

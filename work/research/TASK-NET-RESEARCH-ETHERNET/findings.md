@@ -44,3 +44,7 @@ not marked supported here.
    and full-duplex modes.
 4. IEEE catalog pages show amendments/corrigenda in the 802.3 and 802.1Q families.
    This research did not analyze which amendments affect the narrow fundamentals here.
+
+## Vendor-scoped follow-up (draft)
+
+`CISCO_FRAME`, “Frame Formats”, describes six-octet addresses, two-octet Type, four-octet FCS, a 64-octet minimum, and preamble/SFD before the destination. Together with RFC894 “Frame Format”, this supports the explicitly bounded untagged 64-octet example in proposals; the cited text is historical vendor documentation, not an inspected current IEEE standard. `CISCO_SWITCH`, “Transparent Bridging Algorithm”, and `CISCO_LEARN`, “Key takeaway”, support the vendor-scoped four-case table scenario. IEEE 802.3 and 802.1Q clauses/amendments remain unavailable; exact current normative boundaries and IFG require review. Earlier ETH-07/08 remain unresolved as claims about current IEEE normative text.
