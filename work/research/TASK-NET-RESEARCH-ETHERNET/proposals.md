@@ -22,7 +22,7 @@ Create candidates only after comparing with other network-foundations research.
 
 1. **Candidate `LO.NET.ETHERNET.ENCAPSULATION.01`:** Given an RFC 894 IPv4 frame
    description and an RFC 1042 LLC/SNAP description, identify the encapsulation method,
-   locate the protocol identifier in each, and state one scope limit for each with no
+   locate the protocol identifier in each, and state RFC 1122 §2.3.3 default sending choice for a dual-format 10Mbps host with no
    confusion between LLC length and EtherType.
 2. **Candidate `LO.NET.ETHERNET.LENGTHS.01`:** Given stated byte-count boundaries,
    calculate a complete untagged Ethernet II MAC frame size from destination address
@@ -40,17 +40,33 @@ Create candidates only after comparing with other network-foundations research.
 
 **Prompt:** An IPv4 payload is sent using RFC 894. What value appears in the Ethernet
 Type field, and where does the IP header begin? In an RFC 1042 IEEE 802 encapsulation,
-which sublayer/header sequence carries the protocol identifier?
+which sublayer/header sequence carries the protocol identifier? For a dual-sending host on RFC 1122’s 10Mbps Ethernet, which format is the sending default?
 
 **Answer:** RFC 894 specifies Type `0x0800`; the IP header begins in the Ethernet data
 field. RFC 1042 uses 802.2 LLC followed by SNAP; SNAP's organization code and next
-16-bit field identify the EtherType.
+16-bit field identify the EtherType. RFC 894 is the sending default under RFC 1122 §2.3.3 for the stated host context.
 
-**Rationale:** RFC 894 “Frame Format”; RFC 1042 “Introduction” and “Header Format”.
+**Rationale:** RFC 894 “Frame Format”; RFC 1042 “Introduction” and “Header Format”; RFC 1122 §2.3.3 requires an Internet host on 10Mbps Ethernet to send/receive RFC 894 and, if it sends both, to default its sending selector to RFC 894.
 The answer distinguishes two encapsulations and does not infer the general Ethernet
 MAC frame layout from the IP encapsulation RFC.
 
-### Scenario 2 — MTU versus LLC/SNAP payload
+### Scenario 2 — RFC 894 length calculation (blocked)
+
+**Prompt:** For an untagged Ethernet II IPv4 datagram of 40 octets, calculate the
+complete MAC frame length from destination address through FCS and distinguish
+padding from the IP datagram.
+
+**Answer:** **Blocked.** RFC 894 establishes that its Ethernet data field must
+reach 46 octets and that padding is outside the IP datagram. It does not itself
+provide a verified complete destination-address-through-FCS field accounting in
+this package. A numerical complete-frame answer is not ready for assessment.
+
+**Evidence plan:** Obtain IEEE 802.3-2022 normative frame field diagram and size
+clauses (and relevant amendments), confirm exact frame endpoints and FCS, then
+compute the total. Until then, retain the limited answer: 6 padding octets are
+needed for RFC 894's 40-octet datagram to occupy a 46-octet data field.
+
+### Scenario 2a — MTU versus LLC/SNAP payload
 
 **Prompt:** Under RFC 1042's IEEE 802.3 example, why is the derived maximum IP datagram
 1492 octets rather than 1500?

@@ -95,3 +95,16 @@
     Interpretation concerns earlier 802.3 wording. It states the 1518-octet untagged
     and 1522-octet tagged limits in its request text, but cannot substitute for checking
     the current normative 802.3/802.1Q editions.
+- id: RFC1122
+  title: Requirements for Internet Hosts - Communication Layers
+  url: https://www.rfc-editor.org/rfc/rfc1122.html
+  publisher: IETF / RFC Editor
+  version: RFC 1122, October 1989; STD 3
+  accessed_at: 2026-10-27
+  sections: ["2.3.3 Ethernet and IEEE 802 Encapsulation"]
+  document_status: Internet Standard
+  updates: []
+  updated_by: [RFC 1349, RFC 4379, RFC 5884, RFC 6093, RFC 6298, RFC 6633, RFC 6864, RFC 8029, RFC 9293]
+  obsoleted_by: []
+  access_status: full_text_accessed_via_web
+  notes: Section explicitly concerns Internet hosts connected to a 10Mbps Ethernet cable. Subsequent updates have not been individually rechecked for impacts on this historical section; do not generalize it to modern IEEE 802.3.

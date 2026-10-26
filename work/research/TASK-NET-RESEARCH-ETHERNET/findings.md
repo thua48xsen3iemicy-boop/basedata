@@ -28,6 +28,8 @@ not marked supported here.
 | ETH-08 | IEEE 802.1Q is the primary source for a bridge's source-MAC learning and forwarding/filtering/flooding behavior. | `IEEE8021Q_2022`, official description says it specifies MAC service over bridged networks and MAC/VLAN bridge operation, management, protocols, and algorithms. | Current standard text could not be retrieved, so no specific rule, exact clause, or scenario behavior is verified. VLAN details intentionally outside scope beyond the boundary note. | unresolved |
 | ETH-09 | The contrast between historical shared half-duplex CSMA/CD and present-day full-duplex Ethernet should be stated with careful mode and media applicability. | `IEEE8023_2022`, official abstract says the CSMA/CD MAC protocol specifies shared-medium half-duplex and full-duplex operation. | The abstract is not normative clause text and does not establish the operational rule that collision detection is inapplicable in full-duplex mode. The current standard's clauses were unavailable; historical/current contrast remains partly unresolved. | unresolved |
 
+| ETH-10 | RFC 1122 requires a 10Mbps Ethernet Internet host to send/receive RFC 894, recommends reception of RFC 1042, permits RFC 1042 sending; a dual-sending host must offer a selector defaulting to RFC 894. | `RFC1122` §2.3.3, explicit MUST/SHOULD/MAY and selector paragraph. | Historical host requirements on 10Mbps cable; not a current full IEEE 802.3 specification. | supported, scoped |
+
 ## Open evidence gaps
 
 1. IEEE 802.3-2022 normative clauses and tables were not retrieved. The IEEE SA page

@@ -42,8 +42,8 @@
   accessed_at: "2026-10-26"
   sections: "3.2.1.3 Addressing; 3.3.6 Broadcasts"
   document_status: "Internet Standard (STD 3); updated by RFC 1349, 4379, 5884, 6093, 6298, 6633, 6864, 8029, 9293; no obsoleting RFC listed"
-  updates:
-    - RFC 793
+  updates: []
+  updated_by: [RFC 1349, RFC 4379, RFC 5884, RFC 6093, RFC 6298, RFC 6633, RFC 6864, RFC 8029, RFC 9293]
   obsoleted_by: []
   access_status: "full_text_and_metadata_accessible_via_RFC_Editor"
   notes: "The listed updates address other protocol areas; the broadcast sections were read directly. Errata index was available, but this research did not audit each erratum for these exact sections. Section 3.3.6 says hosts SHOULD use limited broadcast for a connected network and distinguishes it from link-layer broadcast reception."
@@ -55,8 +55,7 @@
   accessed_at: "2026-10-26"
   sections: "1 Introduction; 3 Recommendation (updates RFC 1812 sections 4.2.2.11 and 5.3.5.2)"
   document_status: "Best Current Practice (BCP 34); updates RFC 1812; no obsoleting RFC listed"
-  updates:
-    - RFC 1812
+  updates: [RFC 1812]
   obsoleted_by: []
   access_status: "full_text_and_metadata_accessible_via_RFC_Editor"
   notes: "The normative change says router receive and forwarding options for network-prefix-directed broadcasts MUST default to blocking. This is a router default requirement, not a definition of an L2 broadcast domain or a claim that every directed broadcast is always dropped in every configured network."

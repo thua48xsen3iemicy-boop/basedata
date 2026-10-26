@@ -6,7 +6,8 @@
   accessed_at: "2026-10-26"
   sections: ["2. Addressing", "3.2 Discussion; Source Address and Destination Address fields"]
   document_status: "Internet Standard; RFC Editor metadata lists RFC 760 as obsoleted and RFCs 1349, 2474, 6864 as updates"
-  updates: ["RFC 1349", "RFC 2474", "RFC 6864"]
+  updates: []
+  updated_by: ["RFC 1349", "RFC 2474", "RFC 6864"]
   obsoleted_by: null
   access_status: "read"
   notes: "Section 2's network/class fields describe the older classful model; use only its stable 32-bit/four-octet fact here. The metadata has no current replacement listed."
@@ -18,7 +19,8 @@
   accessed_at: "2026-10-26"
   sections: ["3.2.1.3 Addressing", "3.2.1.3(e), as replaced by RFC 3021"]
   document_status: "Internet Standard; RFC Editor metadata lists updates RFC 1349, 4379, 5884, 6093, 6298, 6633, 6864, 8029, 9293; no obsoleting RFC listed"
-  updates: ["RFC 1349", "RFC 4379", "RFC 5884", "RFC 6093", "RFC 6298", "RFC 6633", "RFC 6864", "RFC 8029", "RFC 9293"]
+  updates: []
+  updated_by: ["RFC 1349", "RFC 4379", "RFC 5884", "RFC 6093", "RFC 6298", "RFC 6633", "RFC 6864", "RFC 8029", "RFC 9293"]
   obsoleted_by: null
   access_status: "read"
   notes: "For the network/broadcast claim, subsection 3.2.1.3(e) is read with RFC 3021's explicit replacement. RFC 1122 contains historic addressing forms and is not a source for contemporary universal usable-host counts."
@@ -42,7 +44,8 @@
   accessed_at: "2026-10-26"
   sections: ["3. Private Address Space"]
   document_status: "Best Current Practice; obsoletes RFCs 1597 and 1627; updated by RFC 6761"
-  updates: ["RFC 6761"]
+  updates: []
+  updated_by: ["RFC 6761"]
   obsoleted_by: null
   access_status: "read"
   notes: "RFC 6761 concerns special-use domain names; the listed private IPv4 blocks are corroborated against the current IANA special-purpose registry."
@@ -66,7 +69,7 @@
   accessed_at: "2026-10-26"
   sections: ["Registry note and table columns Address Block, Source, Destination, Forwardable, Globally Reachable, Reserved-by-Protocol"]
   document_status: "Current maintained registry; references RFC 5736, RFC 6890, Errata 6404, RFC 8190"
-  updates: ["RFC 8190 (registry update reference)"]
+  updates: null
   obsoleted_by: null
   access_status: "read"
   notes: "Registry states listed prefixes are not guaranteed routability in any particular local or global context; properties are per-entry and distinct."
@@ -78,7 +81,8 @@
   accessed_at: "2026-10-26"
   sections: ["3.2.2 Host", "7.4 Rare IP Address Formats", "Appendix A collected ABNF"]
   document_status: "Internet Standard; RFC Editor metadata says updates RFC 1738, is updated by RFC 7320 and RFC 8820, obsoletes RFCs 1808, 2732, 2396"
-  updates: ["RFC 7320", "RFC 8820"]
+  updates: ["RFC 1738"]
+  updated_by: ["RFC 7320", "RFC 8820"]
   obsoleted_by: null
   access_status: "read"
   notes: "Used only for strict IPv4 literal dotted-decimal syntax, not as a general configuration parser standard."
