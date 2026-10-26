@@ -1,0 +1,53 @@
+task_id: TASK-NET-RESEARCH-MAC
+role: researcher
+branch: research/network-foundations-mac
+changed_paths:
+  - work/research/TASK-NET-RESEARCH-MAC/sources.yaml
+  - work/research/TASK-NET-RESEARCH-MAC/findings.md
+  - work/research/TASK-NET-RESEARCH-MAC/proposals.md
+inputs:
+  - work/orders/TASK-NET-RESEARCH-MAC/PROMPT.md
+  - work/orders/TASK-NET-RESEARCH-MAC/order.yaml
+  - work/orders/TASK-NET-RESEARCH-MAC/brief.md
+  - AGENTS.md
+  - contracts/CONVENTIONS.md
+  - agents/roles/researcher.md
+  - work/batches/network-foundations/README.md
+outputs:
+  - work/research/TASK-NET-RESEARCH-MAC/sources.yaml
+  - work/research/TASK-NET-RESEARCH-MAC/findings.md
+  - work/research/TASK-NET-RESEARCH-MAC/proposals.md
+claims_with_evidence:
+  - claim: "The common Ethernet MAC identifier form is 48 bits in six octets, with octet display order distinct from within-octet IEEE transmission bit order."
+    source_ids:
+      - RFC9542
+      - IEEE-MAC-TUTORIAL
+  - claim: "The M/I-G bit distinguishes individual from groupcast, and groupcast includes multicast and broadcast; the next X/U-L bit indicates global versus local scope."
+    source_ids:
+      - RFC9542
+      - IEEE-MAC-TUTORIAL
+  - claim: "48-bit length alone does not guarantee global uniqueness; IEEE globally unique EUI-48 identifiers are assigned in blocks, and configured/spoofed values can change."
+    source_ids:
+      - RFC9542
+      - IEEE-RA-FAQ
+      - IEEE-RA-MAC
+  - claim: "For Ethernet transmission, routing identifies a next-hop protocol address before address resolution maps that address to a 48-bit Ethernet address."
+    source_ids:
+      - RFC826
+  - claim: "The all-ones Ethernet broadcast value is FF-FF-FF-FF-FF-FF in the RFC 894 10 Mb/s Ethernet/IP context."
+    source_ids:
+      - RFC894
+      - RFC9542
+checks_run:
+  - "Opened RFC 9542 full text and checked RFC Editor metadata; status BCP 141, Obsoletes RFC 7042, publication April 2024."
+  - "Opened RFC 7042 RFC Editor metadata; marked obsolete, Obsoletes RFC 5342, Updates RFC 2153, replaced by RFC 9542."
+  - "Opened exact sections in RFC 9542, IEEE RA tutorial PDF, IEEE RA MAC page and FAQ, RFC 826, and RFC 894."
+  - "Checked RFC 826 RFC Editor metadata: Internet Standard STD 37, updated by RFC 5227 and RFC 5494; no obsoleted-by relation shown."
+  - "Checked RFC 894 RFC Editor metadata: Internet Standard STD 41; no updated/obsoleted-by relation shown."
+  - "Attempted IEEE 802.3-2022 ZIP via browser search tool (unsupported ZIP content type) and direct curl (HTTP 403); exact standard clauses were not accessed."
+  - "python tools/validate.py: PASS: 3 units, 4 outcomes, 1 questions, 9 work orders; structural references and hours valid. Validator explicitly does not check factual correctness, source license, normative compliance, or human approval."
+open_questions:
+  - "Reviewer should verify whether the accessible current IEEE Std 802.3 revision/corrigenda alter any MAC addressing details used here; IEEE 802.3-2022 download was blocked in this session."
+  - "RFC 9542 cites IEEE Std 802-2014 and IEEE Std 802c-2017 for local-address/SLAP policy; their full text was not accessed, so IEEE normative status and detailed SLAP implications need review."
+  - "IEEE RA tutorial PDF does not show an edition date; its exact publication/version remains unknown."
+next_role: machine_reviewer
