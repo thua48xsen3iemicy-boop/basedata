@@ -1,0 +1,38 @@
+task_id: TASK-NET-RESEARCH-ARP
+role: researcher
+branch: research/network-foundations-arp
+changed_paths:
+  - work/research/TASK-NET-RESEARCH-ARP/sources.yaml
+  - work/research/TASK-NET-RESEARCH-ARP/findings.md
+  - work/research/TASK-NET-RESEARCH-ARP/proposals.md
+inputs:
+  - work/orders/TASK-NET-RESEARCH-ARP/PROMPT.md
+  - work/orders/TASK-NET-RESEARCH-ARP/order.yaml
+  - work/orders/TASK-NET-RESEARCH-ARP/brief.md
+  - work/batches/network-foundations/README.md
+  - knowledge/networking/ipv4/address/unit.yaml
+outputs:
+  - work/research/TASK-NET-RESEARCH-ARP/sources.yaml
+  - work/research/TASK-NET-RESEARCH-ARP/findings.md
+  - work/research/TASK-NET-RESEARCH-ARP/proposals.md
+claims_with_evidence:
+  - claim: "Address resolution uses the routing-selected immediate target protocol address; remote IPv4 destinations are sent through a selected gateway."
+    source_ids: [RFC826, RFC1122]
+  - claim: "RFC 826 defines ARP packet fields, request/reply processing, and mapping table updates."
+    source_ids: [RFC826]
+  - claim: "RFC 1122 specifies ARP cache invalidation and request-rate controls."
+    source_ids: [RFC1122]
+  - claim: "RFC 5227 defines distinct probe, announcement, and ongoing conflict-detection behavior and applicability."
+    source_ids: [RFC5227]
+  - claim: "ARP inherits vulnerabilities that allow malicious hosts to interfere with address mappings."
+    source_ids: [RFC5227]
+checks_run:
+  - "Retrieved RFC Editor metadata for RFC 826, RFC 1122, and RFC 5227 through web search connector."
+  - "Read cited RFC 826 and RFC 1122 sections from RFC Editor pages; retrieved relevant RFC 5227 sections from RFC Editor HTML text search result (direct open was rate-limited)."
+  - "Recorded RFC status and Updates metadata; no Obsoletes/Obsoleted-by relation was listed on the accessed metadata pages."
+  - "python tools/validate.py result pending."
+open_questions:
+  - "Independent reviewer should verify source citations, especially RFC 5227 text retrieved from a search-indexed RFC Editor result after the direct open returned HTTP 429."
+  - "Reconcile candidate outcome identifiers and prerequisite links with adjacent Ethernet and route research."
+  - "Detailed proxy ARP behavior is intentionally not researched; only the exception and cache-validity caveat are noted."
+next_role: machine_reviewer
